@@ -42,23 +42,24 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 	};
 
 	return (
-		<nav className='relative flex h-[50px] w-full shrink-0 items-center px-5 bg-dark-layer-1 text-dark-gray-7'>
+		<nav className='relative flex h-[50px] w-full shrink-0 items-center px-5 bg-white text-black'>
 			<div className={`flex w-full items-center justify-between ${!problemPage ? "max-w-[1200px] mx-auto" : ""}`}>
-				<Link href='/' className='h-[22px] flex-1'>
-					<Image src='/logo-full.png' alt='Logo' height={100} width={100} />
+				<Link href='/' className='flex items-center justify-center h-20'>
+					<div className='flex text-3xl text-brand-orange font-bold'>
+						UIUCodeDen
+					</div>
 				</Link>
-
 				{problemPage && (
 					<div className='flex items-center gap-4 flex-1 justify-center'>
 						<div
-							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer'
+							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-gray-300 h-8 w-8 cursor-pointer'
 							onClick={() => handleProblemChange(false)}
 						>
 							<FaChevronLeft />
 						</div>
 						<Link
 							href='/'
-							className='flex items-center gap-2 font-medium max-w-[170px] text-dark-gray-8 cursor-pointer'
+							className='flex items-center gap-2 font-medium max-w-[170px] text-black cursor-pointer'
 						>
 							<div>
 								<BsList />
@@ -66,7 +67,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 							<p>Problem List</p>
 						</Link>
 						<div
-							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer'
+							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-gray-300 h-8 w-8 cursor-pointer'
 							onClick={() => handleProblemChange(true)}
 						>
 							<FaChevronRight />
@@ -75,22 +76,12 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 				)}
 
 				<div className='flex items-center space-x-4 flex-1 justify-end'>
-					<div>
-						<a
-							href='https://www.buymeacoffee.com/burakorkmezz'
-							target='_blank'
-							rel='noreferrer'
-							className='bg-dark-fill-3 py-1.5 px-3 cursor-pointer rounded text-brand-orange hover:bg-dark-fill-2'
-						>
-							Premium
-						</a>
-					</div>
 					{!user && (
 						<Link
 							href='/auth'
 							onClick={() => setAuthModalState((prev) => ({ ...prev, isOpen: true, type: "login" }))}
 						>
-							<button className='bg-dark-fill-3 py-1 px-2 cursor-pointer rounded '>Sign In</button>
+							<button className='bg-brand-orange text-white py-1 px-2 cursor-pointer sm:px-4 rounded-md text-sm font-medium border-2 border-transparent hover:bg-white hover:border-2 hover:border-brand-orange hover:text-brand-orange hover:font-bold'>Sign In</button>
 						</Link>
 					)}
 					{user && problemPage && <Timer />}

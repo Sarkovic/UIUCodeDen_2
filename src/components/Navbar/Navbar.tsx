@@ -13,8 +13,17 @@ const Navbar: React.FC<NavbarProps> = () => {
 	return (
 		<div className='flex items-center justify-between sm:px-12 px-2 md:px-24'>
 			<Link href='/' className='flex items-center justify-center h-20'>
-				<Image src='/logo.png' alt='LeetClone' height={200} width={200} />
+				<div className='flex text-3xl text-brand-orange font-bold'>
+					UIUCodeDen
+				</div>
 			</Link>
+			<div className='flex-col align space-x-5 font-semibold'>
+				<span>Explore</span>
+				<span>Contest</span>
+				<span>Forum</span>
+				<span>Ranking</span>
+				<span>Problems</span>
+			</div>
 			<div className='flex items-center'>
 				<button
 					className='bg-brand-orange text-white px-2 py-1 sm:px-4 rounded-md text-sm font-medium
